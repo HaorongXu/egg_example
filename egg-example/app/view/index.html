@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+</head>
+
+<body>
+    <!-- https://ejs.bootcss.com/ -->
+    <h1>这是首页内容</h1>
+    <img src="/public/img/test.jpg" alt="">
+    <p><%=res.id%></p>
+    <p><%=res.name%></p>
+    <ul>
+        <%for(var i=0; i < lists.length; i++){%>
+        <li>
+            <%=lists[i]%>
+        </li>
+        <%}%>
+    </ul>
+    <script src="/public/js/main.js"></script>
+</body>
+</html>
