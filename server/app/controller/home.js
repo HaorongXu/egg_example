@@ -8,8 +8,12 @@ class HomeController extends Controller {
       ctx,
       app
     } = this;
-    const res = await app.mysql.select('article');
-    console.log(res);
+    try {
+      const res = await app.mysql.select('article');
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
     ctx.body = 'hi, egg';
   }
 }

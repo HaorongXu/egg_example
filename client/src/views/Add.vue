@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <van-uploader
       :max-count="1"
       v-model="fileList"
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { Uploader, CellGroup, Field, Button } from "vant";
+import { Uploader, CellGroup, Field, Button, Toast } from "vant";
 export default {
   data() {
     return {
@@ -41,20 +41,30 @@ export default {
       img: "",
     };
   },
+  mounted() {},
   methods: {
     afterRead(info) {
       console.log(info);
       this.img = info.content;
     },
-    handleAdd() {
+    async handleAdd() {
       const { title, summary, content, img } = this;
+      if(!img){
+        this.$toast('请上传图片');
+        return false
+      }
       const data = {
         title,
         summary,
         content,
         img,
       };
-      console.log(data);
+      const res = await this.$http.post("/article/create", data);
+      if (res) {
+        console.log(res);
+        this.$toast.success(res.data.msg);
+        this.$router.push('/')
+      }
     },
   },
   components: {
@@ -62,11 +72,15 @@ export default {
     [CellGroup.name]: CellGroup,
     [Field.name]: Field,
     [Button.name]: Button,
+    [Toast.name]: Toast,
   },
 };
 </script>
 
 <style scoped>
+.main{
+  padding-top: 30px;
+}
 .add {
   position: absolute;
   height: 36px;
