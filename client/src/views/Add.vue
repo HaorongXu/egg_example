@@ -59,7 +59,7 @@ export default {
         content,
         img,
       };
-      const res = await this.$http.post("/article/create", data);
+      const res = await this.$http.post("/api/article/create", data);
       if (res) {
         console.log(res);
         this.$toast.success(res.data.msg);

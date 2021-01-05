@@ -52,7 +52,7 @@ export default {
     },
     async onLoad() {
       // 获取文章列表
-      const res = await this.$http.get("/article/lists");
+      const res = await this.$http.get("/api/article/lists");
       if (res.status == 200) {
         this.loading = false;
         this.finished = true;

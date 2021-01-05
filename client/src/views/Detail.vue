@@ -27,7 +27,7 @@ export default {
         message: "加载中...",
       });
       const res = await this.$http.get(
-        `/article/detail/${this.$route.query.id}`
+        `/api/article/detail/${this.$route.query.id}`
       );
       this.detail = res.data.data;
       this.$toast.clear();

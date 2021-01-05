@@ -33,11 +33,11 @@ module.exports = appInfo => {
     // 单数据库信息配置
     client: {
       // host
-      host: 'localhost',
+      host: '120.78.134.117',
       // 端口号
       port: '3306',
       // 用户名
-      user: 'root',
+      user: 'egg_article',
       // 密码
       password: '123456',
       // 数据库名
@@ -48,6 +48,26 @@ module.exports = appInfo => {
     // 是否加载到 agent 上，默认关闭
     agent: false,
   };
+
+  // config.mysql = {
+  //   // 单数据库信息配置
+  //   client: {
+  //     // host
+  //     host: 'localhost',
+  //     // 端口号
+  //     port: '3306',
+  //     // 用户名
+  //     user: 'root',
+  //     // 密码
+  //     password: '123456',
+  //     // 数据库名
+  //     database: 'egg_article',
+  //   },
+  //   // 是否加载到 app 上，默认开启
+  //   app: true,
+  //   // 是否加载到 agent 上，默认关闭
+  //   agent: false,
+  // };
 
   return {
     ...config,
